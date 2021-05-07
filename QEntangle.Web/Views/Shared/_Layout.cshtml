@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+  <link href="~/css/normalize.css" rel="stylesheet">
+  <link href="~/css/small.css" rel="stylesheet">
+  <link href="~/css/medium.css" rel="stylesheet">
+  <link href="~/css/large.css" rel="stylesheet">
+  <title>@ViewBag.Title</title>
+</head>
+
+<body>
+  <header class="clearfix">
+    <div class="row limited">
+      <section class="column small-12 medium-logo">
+        <div class="vertical-alignment-container logo-div">
+          <img src="~/images/QIcon_black.svg" alt="logo" height="60" /><h1 class="logo-title">Entangle</h1>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <nav class="clearfix">
+    <div class="row limited">
+      <button id="hamburgerBtn">&#9776;</button>
+      <ul id="primaryNav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="choice/list">Choices</a></li>
+        <li><a href="#">Logout</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="clearfix">
+    @RenderBody()
+  </main>
+
+  <footer class="clearfix">
+    <div class="row limited">
+      <section class="column small-12 medium-6 large-3">
+        <h2>This Page</h2>
+        <ul>
+          <li>This page is an internal test. If you are not a tester, you will not be able to sign up and use this site.</li>
+        </ul>
+      </section>
+      <section class="column small-12 medium-6 large-3">
+        <h2>Quantum Entanglement</h2>
+        <ul>
+          <li>Parallel worlds probably exist. See the <a href="https://www.youtube.com/watch?v=kTXTPe3wahc">video by Veritasium</a>.</li>
+          <li>This website helps you to create parallel worlds and keep track on your branches.</li>
+        </ul>
+      </section>
+      <section class="column small-12 medium-6 large-3">
+        <h2>Social</h2>
+        <ul>
+          <li>Check out the code on <a href="https://github.com/ultradr3mer/QEntangle.Web">Github</a>.</li>
+        </ul>
+      </section>
+      <section class="column small-12 medium-6 large-3">
+        <h2>About Us</h2>
+        <img src="~/images/om_black.svg" alt="logo" width="150" />
+        <p>&copy; 2021 all rights reserved</p>
+      </section>
+    </div><!-- end of the row -->
+  </footer>
+
+  <script src="js/menuToggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+@media only screen and (min-width: 768px) {
+
+  .medium-6 {
+    width: 50%;
+  }
+
+  .medium-logo {
+    width: 330px;
+  }
+
+  nav button {
+    display: none;
+  }
+
+  nav ul {
+    display: block;
+  }
+
+  nav li {
+    width: auto;
+    float: left;
+  }
+
+  nav a {
+    padding: .85rem 1rem;
+  }
+}
+/* end of media query */
