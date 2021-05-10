@@ -8,7 +8,7 @@
     width: 330px;
   }
 
-  nav button {
+  button#hamburgerBtn {
     display: none;
   }
 

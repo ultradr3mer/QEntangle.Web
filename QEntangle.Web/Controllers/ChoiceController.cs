@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using QEntangle.Web.Extensions;
 using QEntangle.Web.Interfaces;
 using QEntangle.Web.ViewModels;
 using System;
@@ -19,7 +20,9 @@ namespace QEntangle.Web.Controllers
 
     public ViewResult List()
     {
-      var vm = new ChoicesListViewModel { List = this.choiceRepository.GetChoices() };
+      var data = this.choiceRepository.GetChoices();
+      var vms = data.Select(o => new ChoicesListViewModel.ChoiceEntryViewModel().GetWithDataModel(o)).ToList();
+      var vm = new ChoicesListViewModel { List =  vms };
       return View(vm);
     }
 

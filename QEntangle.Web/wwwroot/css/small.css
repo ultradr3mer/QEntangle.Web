@@ -11,14 +11,19 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
+  color: #e6e6e6;
   font-size: 16px;
   font-weight: 300;
-  background-color: #454545;
+  background-color: #333333;
 }
 
 footer {
-  background-color: #9d9d9d;
+  background-color: #454545;
   font-size: 1.2rem;
+}
+
+a {
+  color: #58a6ff;
 }
 
 /* grid rules */
@@ -33,7 +38,7 @@ footer {
 
 .column {
   float: left;
-  padding: 0 2vw;
+  padding: 0 .75rem;
   margin: 0 0 .75rem 0;
 }
 
@@ -69,7 +74,7 @@ h1 {
 }
 
 header {
-  background-color: #9d9d9d;
+  background-color: #454545;
 }
 
 button#hamburgerBtn {
@@ -77,20 +82,21 @@ button#hamburgerBtn {
   border: none;
   font-size: 2.4rem;
   cursor: pointer;
-  padding: 0 30px 0 2vw;
+  padding: 0 0.1rem;
 }
 
 .logo-title {
   margin: 0.3rem;
+  color: black;
 }
 
 nav {
-  background-color: #9d9d9d;
+  background-color: #454545;
 }
 
   nav ul {
     margin: 0;
-    padding: 0 2vw;
+    padding: 0 .75rem;
   }
 
     nav ul li {
@@ -100,17 +106,17 @@ nav {
   nav a {
     display: block;
     padding: .8rem 0;
-    color: #000;
+    color: #e6e6e6;
     text-align: center;
     text-decoration: none;
   }
 
   nav li.active {
-    background-color: #00000077;
+    background-color: #ffffff77;
   }
 
   nav a:hover {
-    background-color: #00000030;
+    background-color: #ffffff30;
   }
 
   nav ul.open {
@@ -125,3 +131,26 @@ nav {
 	  width: 100%;
 	  height: auto;
   }
+
+.choice-container {
+  background-color: #454545;
+  padding: 0.75rem;
+}
+
+.option {
+  border-radius: 1rem;
+  background-color: #9d9d9d;
+  width: auto;
+  padding-top: .3rem;
+  padding-right: .5rem;
+  padding-bottom: .3rem;
+  padding-left: .5rem;
+  margin-top: 0;
+  margin-right: .4rem;
+  margin-bottom: .4rem;
+  margin-left: 0;
+}
+
+.option-definitive {
+  background-color: #fa6800;
+}

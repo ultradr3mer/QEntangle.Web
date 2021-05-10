@@ -4,12 +4,8 @@
     width: 25%;
   }
 
-	.column {
-	  padding: 0 25px;
-	}
-	
 	nav ul {
-		padding: 0 25px;
+		padding: 0 .75rem;
 	}
 }
 /* end of media query */

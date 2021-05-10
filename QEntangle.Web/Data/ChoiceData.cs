@@ -9,7 +9,7 @@ namespace QEntangle.Web.Data
   {
     public string Name { get; set; }
 
-    public string Options { get; set; }
+    public string[] Options { get; set; }
 
     public string DefinitiveOption { get; set; }
   }
