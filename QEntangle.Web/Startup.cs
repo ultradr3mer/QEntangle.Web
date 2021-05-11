@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QEntangle.Web.Database;
 using QEntangle.Web.Interfaces;
 using QEntangle.Web.Repositorys;
 
@@ -50,9 +52,11 @@ namespace QEntangle.Web
 
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
       services.AddControllersWithViews();
 
-      services.AddScoped<IChoiceRepository, ChoiceRepoMock>();
+      services.AddScoped<IChoiceRepository, ChoiceRepository>();
     }
 
     #endregion Methods

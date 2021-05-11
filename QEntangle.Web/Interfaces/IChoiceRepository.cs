@@ -1,5 +1,6 @@
 ﻿using QEntangle.Web.Data;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QEntangle.Web.Interfaces
 {
@@ -7,7 +8,7 @@ namespace QEntangle.Web.Interfaces
   {
     #region Methods
 
-    public IList<ChoiceData> GetChoices();
+    public Task<IList<ChoiceData>> GetChoices();
 
     #endregion Methods
   }

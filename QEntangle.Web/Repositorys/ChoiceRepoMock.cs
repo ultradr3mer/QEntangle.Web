@@ -1,6 +1,7 @@
 ﻿using QEntangle.Web.Data;
 using QEntangle.Web.Interfaces;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QEntangle.Web.Repositorys
 {
@@ -8,7 +9,9 @@ namespace QEntangle.Web.Repositorys
   {
     #region Methods
 
-    public IList<ChoiceData> GetChoices()
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+    public async Task<IList<ChoiceData>> GetChoices()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
     {
       return new List<ChoiceData> {
         new ChoiceData { Name = "Which Energydrink", Options = new string[] { "Original","Watermellon" }, DefinitiveOption = "Watermellon" },

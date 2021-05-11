@@ -3,6 +3,7 @@ using QEntangle.Web.Extensions;
 using QEntangle.Web.Interfaces;
 using QEntangle.Web.ViewModels;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace QEntangle.Web.Controllers
 {
@@ -30,9 +31,9 @@ namespace QEntangle.Web.Controllers
       return View();
     }
 
-    public ViewResult List()
+    public async Task<ViewResult> List()
     {
-      var data = this.choiceRepository.GetChoices();
+      var data = await this.choiceRepository.GetChoices();
       var vms = data.Select(o => new ChoicesListViewModel.ChoiceEntryViewModel().GetWithDataModel(o)).ToList();
       var vm = new ChoicesListViewModel { List = vms };
       return View(vm);
