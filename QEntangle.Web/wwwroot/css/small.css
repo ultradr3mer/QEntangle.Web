@@ -68,11 +68,7 @@ h1 {
   font-size: 2.5rem;
   padding: 0.1rem;
 }
-
-.logo-div {
-  background-color: #fa6800;
-}
-
+ 
 header {
   background-color: #454545;
 }
@@ -154,3 +150,5 @@ nav {
 .option-definitive {
   background-color: #fa6800;
 }
+
+

@@ -6,71 +6,78 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
-  <link href="~/css/normalize.css" rel="stylesheet">
-  <link href="~/css/small.css" rel="stylesheet">
-  <link href="~/css/medium.css" rel="stylesheet">
-  <link href="~/css/large.css" rel="stylesheet">
+  @*<link href="~/css/normalize.css" rel="stylesheet">
+    <link href="~/css/small.css" rel="stylesheet">
+    <link href="~/css/medium.css" rel="stylesheet">
+    <link href="~/css/large.css" rel="stylesheet">*@
+
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/mystyles.css" />
+
   <title>@ViewBag.Title</title>
 </head>
 
 <body>
-  <header class="clearfix">
-    <div class="row limited">
-      <section class="column small-12 medium-logo">
-        <div class="vertical-alignment-container logo-div">
-          <img src="~/images/QIcon_black.svg" alt="logo" height="60" />
-          <h1 class="logo-title">Entangle</h1>
-          <button id="hamburgerBtn">&#9776;</button>
-        </div>
-      </section>
-    </div>
-  </header>
-
-  <nav class="clearfix">
-    <div class="row limited">
-      
-      <ul id="primaryNav">
-        <li class="active"><a asp-controller="home" asp-action="index">Home</a></li>
-        <li><a asp-controller="choice" asp-action="list">Choices</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="#">FAQ</a></li>
-        <partial name="_LoginPartial" />
-      </ul>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid container">
+      <div class="logo-div">
+        <a class="navbar-brand vertical-alignment-container"><img src="~/images/QIcon_black.svg" alt="logo" height="40" />Entangle</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" asp-controller="home" asp-action="index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-controller="choice" asp-action="list">Choices</a>
+          </li>
+          <partial name="_LoginPartial" />
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <main class="clearfix">
-    @RenderBody()
+  <main>
+    <div class="container main-container">
+      @RenderBody()
+    </div>
   </main>
 
-  <footer class="clearfix">
-    <div class="row limited">
-      <section class="column small-12 medium-6 large-3">
-        <h2>This Page</h2>
-        <ul>
-          <li>This page is an internal test. If you are not a tester, you will not be able to sign up and use this site.</li>
-        </ul>
-      </section>
-      <section class="column small-12 medium-6 large-3">
-        <h2>Quantum Entanglement</h2>
-        <ul>
-          <li>Parallel worlds probably exist. See the <a href="https://www.youtube.com/watch?v=kTXTPe3wahc">video by Veritasium</a>.</li>
-          <li>This website helps you to create parallel worlds and keep track on your branches.</li>
-        </ul>
-      </section>
-      <section class="column small-12 medium-6 large-3">
-        <h2>Social</h2>
-        <ul>
-          <li>Check out the code on <a href="https://github.com/ultradr3mer/QEntangle.Web">Github</a>.</li>
-        </ul>
-      </section>
-      <section class="column small-12 medium-6 large-3">
-        <h2>About Us</h2>
-        <img src="~/images/om_white.svg" alt="logo" width="150" />
-        <p>&copy; 2021 all rights reserved</p>
-      </section>
-    </div><!-- end of the row -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-xl-3">
+          <h3>This Page</h3>
+          <ul>
+            <li>This page is an internal test. If you are not a tester, you will not be able to sign up and use this site.</li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <h3>Quantum Entanglement</h3>
+          <ul>
+            <li>Parallel worlds probably exist. See the <a href="https://www.youtube.com/watch?v=kTXTPe3wahc">video by Veritasium</a>.</li>
+            <li>This website helps you to create parallel worlds and keep track on your branches.</li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <h3>Social</h3>
+          <ul>
+            <li>Check out the code on <a href="https://github.com/ultradr3mer/QEntangle.Web">Github</a>.</li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <h3>About Us</h3>
+          <img src="~/images/om_white.svg" alt="logo" width="150" />
+          <p>&copy; 2021 all rights reserved</p>
+        </div>
+      </div>
+    </div>
   </footer>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   @RenderSection("Scripts", required: false)
   <script src="~/js/site.js"></script>
 </body>

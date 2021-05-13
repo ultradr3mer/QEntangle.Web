@@ -1,0 +1,96 @@
+﻿header {
+  background-color: #454545;
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding: 0.1rem;
+}
+
+.logo-div {
+  background-color: #fa6800;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #e6e6e6;
+  font-size: 16px;
+  background-color: #333333;
+}
+
+.vertical-alignment-container {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.logo-title {
+  margin: 0.3rem;
+  color: black;
+}
+
+.bg-dark {
+  background-color: #454545 !important;
+}
+
+footer {
+  background-color: #454545;
+  font-size: 1.2rem;
+}
+
+.navbar {
+  padding: 0;
+}
+
+.navbar-brand {
+  margin-left: 1rem;
+  color: black !important;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(230, 230, 230, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-dark .navbar-toggler {
+  color: #e6e6e6c7;
+  border-color: #e6e6e6c7;
+  margin: .3rem;
+}
+
+/*.navbar-collapse {
+  background-color: #454545;
+}*/
+
+.navbar-nav .nav-link {
+  padding-left: .5rem;
+}
+
+/*@media (max-width: 768px) {
+  .bg-dark {
+    background-color: #fa6800 !important;
+  }
+}*/
+
+.nav-centered {
+  position: relative;
+  width: 100%;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-container {
+  margin-bottom: 1rem;
+}
+
+.nav-btn-link {
+  border: 0;
+}
+
+@media (max-width: 767.98px)  {
+  .navbar-expand-md.container, .navbar-expand-md.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
