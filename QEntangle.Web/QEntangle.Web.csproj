@@ -20,4 +20,7 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <PropertyGroup>               
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
 </Project>
