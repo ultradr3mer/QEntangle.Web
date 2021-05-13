@@ -34,6 +34,7 @@
         <li><a asp-controller="choice" asp-action="list">Choices</a></li>
         <li><a href="#">Logout</a></li>
         <li><a href="#">FAQ</a></li>
+        <partial name="_LoginPartial" />
       </ul>
     </div>
   </nav>
@@ -70,7 +71,7 @@
       </section>
     </div><!-- end of the row -->
   </footer>
-
+  @RenderSection("Scripts", required: false)
   <script src="~/js/site.js"></script>
 </body>
 </html>

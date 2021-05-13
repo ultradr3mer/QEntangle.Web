@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using QEntangle.Web.Database.Identity;
+using System;
 
 namespace QEntangle.Web.Database
 {
-  public class DatabaseContext : DbContext
+  public class DatabaseContext : IdentityDbContext<ApplicationUser, Role, Guid>
   {
     #region Constructors
 
@@ -15,10 +17,27 @@ namespace QEntangle.Web.Database
 
     #region Properties
 
-    public DbSet<UserEntity> QeUser { get; set; }
     public DbSet<ChoiceEntity> Choice { get; set; }
 
     #endregion Properties
 
+    #region Methods
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+      base.OnModelCreating(builder);
+
+      builder.Entity<ApplicationUser>(b =>
+      {
+        b.Property(u => u.Id).HasDefaultValueSql("newsequentialid()");
+      });
+
+      builder.Entity<Role>(b =>
+      {
+        b.Property(u => u.Id).HasDefaultValueSql("newsequentialid()");
+      });
+    }
+
+    #endregion Methods
   }
 }

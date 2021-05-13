@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace QEntangle.Web.Database
 {
@@ -6,11 +8,20 @@ namespace QEntangle.Web.Database
   {
     #region Properties
 
+    [MaxLength(500)]
     public string DefinitiveOption { get; set; }
+
+    [Key]
     public Guid Id { get; set; }
+
+    [MaxLength(500)]
     public string Name { get; set; }
+
+    [MaxLength(500)]
     public string Options { get; set; }
-    public UserEntity User { get; set; }
+
+    public IdentityUser User { get; set; }
+
     public Guid UserId { get; set; }
 
     #endregion Properties
