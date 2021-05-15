@@ -29,9 +29,9 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link @(ViewData["Title"] == "Home" ? "active" : "")" aria-current="page" asp-controller="home" asp-action="index">Home</a>
+            <a class="nav-link @(ViewData["Title"] as string == "Home" ? "active" : "")" aria-current="page" asp-controller="home" asp-action="index">Home</a>
           </li>
-          <li class="nav-item @(ViewData["Title"] == "Choice List" ? "active" : "")">
+          <li class="nav-item @(ViewData["Title"] as string == "Choice List" ? "active" : "")">
             <a class="nav-link" asp-controller="choice" asp-action="list">Choices</a>
           </li>
           <partial name="_LoginPartial" />
@@ -40,7 +40,7 @@
     </div>
   </nav>
 
-  <main class="mb-3">
+  <main class="mb-3 mt-3">
     <div class="container">
       @RenderBody()
     </div>

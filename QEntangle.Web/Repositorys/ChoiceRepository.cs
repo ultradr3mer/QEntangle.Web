@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using QEntangle.Web.Data;
 using QEntangle.Web.Database;
-using QEntangle.Web.Database.Identity;
 using QEntangle.Web.Exceptions;
 using QEntangle.Web.Interfaces;
 using QEntangle.Web.Models;
@@ -16,11 +13,30 @@ namespace QEntangle.Web.Repositorys
 {
   public class ChoiceRepository : IChoiceRepository
   {
+    #region Fields
+
     private readonly DatabaseContext databaseContext;
+
+    #endregion Fields
+
+    #region Constructors
 
     public ChoiceRepository(DatabaseContext databaseContext)
     {
       this.databaseContext = databaseContext;
+    }
+
+    #endregion Constructors
+
+    #region Methods
+
+    public async Task<ChoiceEntity> GetChoice(Guid choiceId, Guid userId)
+    {
+      ChoiceEntity data = await (from c in this.databaseContext.Choice
+                                 where c.Id == choiceId && c.UserId == userId
+                                 select c).FirstOrDefaultAsync();
+
+      return data;
     }
 
     public async Task<IList<ChoiceData>> GetChoices(Guid userId)
@@ -34,6 +50,12 @@ namespace QEntangle.Web.Repositorys
       return result;
     }
 
+    public async Task PostChoiceAsync(ChoiceEntity entity)
+    {
+      await databaseContext.AddAsync(entity);
+      await databaseContext.SaveChangesAsync();
+    }
+
     private static ChoiceData CreateGetDataFromEntity(ChoiceEntity entity)
     {
       return new ChoiceData()
@@ -45,24 +67,11 @@ namespace QEntangle.Web.Repositorys
       };
     }
 
-    public async Task PostChoiceAsync(PostChoiceData choice, Guid userId)
+    public async Task SaveChanges()
     {
-      var optionsArray = choice.Options.Split(",").Select(o => o.Trim()).ToArray();
-      if (optionsArray.Length < 2)
-      {
-        throw new UserException("At least 2 options are required.");
-      }
-      string optionsString = string.Join(",", optionsArray);
-
-      var entity = new ChoiceEntity()
-      {
-        Name = choice.Name,
-        Options = optionsString,
-        UserId = userId,
-      };
-
-      await databaseContext.AddAsync(entity);
       await databaseContext.SaveChangesAsync();
     }
+
+    #endregion Methods
   }
 }

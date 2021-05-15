@@ -9,10 +9,8 @@ using QEntangle.Web.Database;
 using QEntangle.Web.Database.Identity;
 using QEntangle.Web.Interfaces;
 using QEntangle.Web.Repositorys;
-using System;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using QEntangle.Web.Services;
+using System.Net.Http;
 
 namespace QEntangle.Web
 {
@@ -64,14 +62,15 @@ namespace QEntangle.Web
 
       services.AddControllersWithViews();
       services.AddRazorPages();
-
       services.AddScoped<IChoiceRepository, ChoiceRepository>();
 
       services.AddIdentity<ApplicationUser, Role>()
         .AddEntityFrameworkStores<DatabaseContext>()
         .AddDefaultTokenProviders()
-        .AddDefaultUI(); 
+        .AddDefaultUI();
 
+      services.AddScoped<HttpClient>();
+      services.AddScoped<QrngAnuClient>();
     }
 
     #endregion Methods

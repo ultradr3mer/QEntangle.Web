@@ -130,6 +130,18 @@ footer {
   margin-bottom: -1rem;
 }
 
+.equalize-top-margin {
+  margin-top: -1rem;
+}
+
 hr {
   border-top: 1px solid #555;
+}
+
+.row-righttoleft {
+  float: right;
+}
+
+.btn-primary {
+  color: black;
 }
