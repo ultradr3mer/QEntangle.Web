@@ -94,3 +94,36 @@ footer {
     padding-left: 15px;
   }
 }
+
+.choice-container {
+  background-color: #454545;
+  padding: 0.75rem;
+}
+
+.option {
+  border-radius: 1rem;
+  background-color: #9d9d9d;
+  width: auto;
+  padding-top: .2rem;
+  padding-right: .5rem;
+  padding-bottom: .2rem;
+  padding-left: .5rem;
+  min-width: 30.375px;
+  text-align: center;
+}
+
+.option-definitive {
+  background-color: #fa6800;
+}
+
+.row-mlr-1 {
+  margin-right: -.25rem;
+  margin-left: -.25rem;
+}
+
+.col-plr-1 {
+  padding-right: .25rem;
+  padding-left: .25rem;
+}
+
+

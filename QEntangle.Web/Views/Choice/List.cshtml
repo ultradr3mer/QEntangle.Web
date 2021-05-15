@@ -1,26 +1,38 @@
 ﻿@model ChoicesListViewModel
 
-<div class="row limited">
-  <section class="column small-12">
-    <h1>Evaluated choices</h1>
-  </section>
-</div>
-
-<div class="row limited">
-  @foreach (var choice in Model.List)
-  {
-  <div class="column small-12 medium-6 large-3">
-    <div class="choice-container">
-      <h2>@choice.Name</h2>
-      <div class="row">
-        @foreach (var option in choice.Options)
-        {
-          <section class="column option @(option.IsDefinitive ? "option-definitive" : string.Empty)">@option.Name</section>
-        }
-      </div>
-      <div class="row">
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Evaluated choices</h1>
     </div>
   </div>
-  }
+
+  @*<div class="row">
+      <div class="col-12">
+        <img src="/images/qbranches.jpg" alt="Quantum Reality Branches" width="1140" height="475" class="img-fluid" />
+      </div>
+    </div>*@
+
+
+  <div class="row">
+    @foreach (var choice in Model.List)
+    {
+      <div class="col-12 col-md-6 col-xl-3 mb-3">
+        <div class="choice-container">
+          <h2>@choice.Name</h2>
+          <div class="row row-mlr-1">
+            @foreach (var option in choice.Options)
+            {
+              <div class="col-auto col-plr-1 mt-1 mb-1">
+                <div class="option @(option.IsDefinitive ? " option-definitive" : string.Empty)">@option.Name</div>
+              </div>
+            }
+          </div>
+          <div class="row">
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 </div>
+
