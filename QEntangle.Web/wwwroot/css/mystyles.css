@@ -126,4 +126,10 @@ footer {
   padding-left: .25rem;
 }
 
+.equalize-bottom-margin {
+  margin-bottom: -1rem;
+}
 
+a {
+  color: #e8a97c;
+}

@@ -11,7 +11,7 @@
     <link href="~/css/medium.css" rel="stylesheet">
     <link href="~/css/large.css" rel="stylesheet">*@
 
-  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/lib/bootstrap-4.6.0/scss/custom-bootstrap.min.css" />
   <link rel="stylesheet" href="~/css/mystyles.css" />
 
   <title>@ViewBag.Title</title>
@@ -40,12 +40,14 @@
     </div>
   </nav>
 
-  <main>
-    @RenderBody()
+  <main class="mb-3">
+    <div class="container">
+      @RenderBody()
+    </div>
   </main>
 
-  <footer>
-    <div class="container mt-3">
+  <footer class="p-2">
+    <div class="container">
       <div class="row">
         <div class="col-12 col-md-6 col-xl-3">
           <h3>This Page</h3>
@@ -75,7 +77,7 @@
     </div>
   </footer>
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
-  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/lib/bootstrap-4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   @RenderSection("Scripts", required: false)
   <script src="~/js/site.js"></script>
 </body>
