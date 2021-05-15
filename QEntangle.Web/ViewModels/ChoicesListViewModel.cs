@@ -10,7 +10,8 @@ namespace QEntangle.Web.ViewModels
   {
     #region Properties
 
-    public IList<ChoiceEntryViewModel> List { get; set; }
+    public IList<ChoiceEntryViewModel> Evaluated { get; set; }
+    public IList<ChoiceEntryViewModel> Unevaluated { get; set; }
 
     #endregion Properties
 

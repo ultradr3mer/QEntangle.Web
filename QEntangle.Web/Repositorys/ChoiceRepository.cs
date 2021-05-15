@@ -1,7 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using QEntangle.Web.Data;
 using QEntangle.Web.Database;
+using QEntangle.Web.Database.Identity;
+using QEntangle.Web.Exceptions;
 using QEntangle.Web.Interfaces;
+using QEntangle.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +23,10 @@ namespace QEntangle.Web.Repositorys
       this.databaseContext = databaseContext;
     }
 
-    public async Task<IList<ChoiceData>> GetChoices()
+    public async Task<IList<ChoiceData>> GetChoices(Guid userId)
     {
       List<ChoiceEntity> data = await (from c in this.databaseContext.Choice
+                                       where c.UserId == userId
                                        select c).ToListAsync();
 
       var result = data.Select(CreateGetDataFromEntity).ToList();
@@ -37,6 +43,26 @@ namespace QEntangle.Web.Repositorys
         Options = entity.Options.Split(","),
         DefinitiveOption = entity.DefinitiveOption
       };
+    }
+
+    public async Task PostChoiceAsync(PostChoiceData choice, Guid userId)
+    {
+      var optionsArray = choice.Options.Split(",").Select(o => o.Trim()).ToArray();
+      if (optionsArray.Length < 2)
+      {
+        throw new UserException("At least 2 options are required.");
+      }
+      string optionsString = string.Join(",", optionsArray);
+
+      var entity = new ChoiceEntity()
+      {
+        Name = choice.Name,
+        Options = optionsString,
+        UserId = userId,
+      };
+
+      await databaseContext.AddAsync(entity);
+      await databaseContext.SaveChangesAsync();
     }
   }
 }

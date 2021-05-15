@@ -1,11 +1,12 @@
 ﻿using QEntangle.Web.Data;
 using QEntangle.Web.Interfaces;
+using QEntangle.Web.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace QEntangle.Web.Repositorys
 {
-  public class ChoiceRepoMock : IChoiceRepository
+  public class ChoiceRepoMock
   {
     #region Methods
 

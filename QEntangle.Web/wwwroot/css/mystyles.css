@@ -129,3 +129,7 @@ footer {
 .equalize-bottom-margin {
   margin-bottom: -1rem;
 }
+
+hr {
+  border-top: 1px solid #555;
+}

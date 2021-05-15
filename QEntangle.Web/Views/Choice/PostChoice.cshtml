@@ -1,0 +1,21 @@
+﻿@model ChoicePostViewModel
+@{
+  ViewData["Title"] = "Post Choice";
+}
+
+<div class="row">
+  <div class="col-12">
+    <h1>Add choice</h1>
+  </div>
+</div>
+
+@if(!string.IsNullOrEmpty(Model.ExceptionMessage))
+{
+<div class="row">
+  <div class="col-12">
+    <span class="text-danger">@Model.ExceptionMessage</span>
+  </div>
+</div>
+}
+
+<partial name="_PostChoice" model="Model.PostChoiceData" />

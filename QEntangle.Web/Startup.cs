@@ -10,6 +10,9 @@ using QEntangle.Web.Database.Identity;
 using QEntangle.Web.Interfaces;
 using QEntangle.Web.Repositorys;
 using System;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace QEntangle.Web
 {
@@ -67,11 +70,8 @@ namespace QEntangle.Web
       services.AddIdentity<ApplicationUser, Role>()
         .AddEntityFrameworkStores<DatabaseContext>()
         .AddDefaultTokenProviders()
-        .AddDefaultUI();
-      //.AddEntityFrameworkStores<DatabaseContext, Guid>()
-      //.AddDefaultTokenProviders()
-      //.AddUserStore<UserStore<ApplicationUser, Role, ApplicationDbContext, Guid>>()
-      //.AddRoleStore<RoleStore<Role, ApplicationDbContext, Guid>>();
+        .AddDefaultUI(); 
+
     }
 
     #endregion Methods
