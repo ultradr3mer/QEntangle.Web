@@ -5,18 +5,18 @@
 
 <div class="equalize-bottom-margin">
   <div class="row">
-    <div class="col-12 col-md-6">
-      <h3 class="container-id">B-0</h3>
-      <h1>Add choice</h1>
+    <div class="col-12 col-md-6 mb-3">
+      <h4 class="container-id">B-0</h4>
+      <h2>Add choice</h2>
       <hr />
       <partial name="_PostChoice" model="null" />
     </div>
-    <div class="col-12 col-md-6">
-      <h3 class="container-id">B-1</h3>
-      <h1>Info</h1>
+    <div class="col-12 col-md-6 mb-3">
+      <h4 class="container-id">B-1</h4>
+      <h2>Info</h2>
       <hr />
       <div>
-        <img class="floated-left-child mr-2" src="~/images/exclamation-box.svg" width="70" height="70" />
+        <img class="floated-left-child mr-2" src="~/images/play-box.svg" width="70" height="70" />
         Just enter what actions each version of yourself should execute. When you click execute, a "random number" from the <a href="https://qrng.anu.edu.au/">ANU QRNG</a> service is retrieved and an option determined according to that number. Every evaluation each option will be selected, but you will be split and only see a single option selected.<br />
         If each version of you acts according to the assigned action, you have successfully put yourself into a superposition.<br />
       </div>
@@ -27,8 +27,8 @@
   {
     <div class="row">
       <div class="col-12">
-        <h3 class="container-id">B-2</h3>
-        <h1>Unevaluated choices</h1>
+        <h4 class="container-id">B-2</h4>
+        <h2>Unevaluated choices</h2>
         <hr />
       </div>
     </div>
@@ -37,9 +37,14 @@
   <div class="row">
     @foreach (var choice in Model.Unevaluated)
     {
-      <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <div class="choice-container">
-          <h3>@choice.Name</h3>
+      <div class="col-12 col-md-6 col-xl-4 mb-3">
+        <div class="container choice-container">
+          <div class="row justify-content-end">
+            <div class="col-auto">
+              <p class="decorative-guid">››› @choice.Id</p>
+            </div>
+          </div>
+          <h4>@choice.Name</h4>
           <div class="row row-mlr-1">
             @foreach (var option in choice.Options)
             {
@@ -48,8 +53,13 @@
               </div>
             }
           </div>
-          <div class="clearfix mt-2">
-            <a class="btn btn-primary float-right clearfix" role="button" asp-controller="choice" asp-action="evaluate" asp-route-id="@choice.Id"><img src="~/icons/bolt_black_24dp.svg" /></a>
+          <div class="row row-mlr-1 justify-content-end mt-2">
+            <div class="col-auto col-plr-1">
+              <a class="btn btn-secondary float-right clearfix choice-button" role="button" asp-controller="choice" asp-action="delete" asp-route-id="@choice.Id" alt="delete"><img src="~/icons/clear_gray_24dp.svg" /></a>
+            </div>
+            <div class="col-auto col-plr-1">
+              <a class="btn btn-primary float-right clearfix choice-button" role="button" asp-controller="choice" asp-action="evaluate" asp-route-id="@choice.Id" alt="evaluate"><img src="~/icons/bolt_black_24dp.svg" /></a>
+            </div>
           </div>
         </div>
       </div>
@@ -60,8 +70,8 @@
   {
     <div class="row">
       <div class="col-12">
-        <h3 class="container-id">B-3</h3>
-        <h1>Evaluated choices</h1>
+        <h4 class="container-id">B-3</h4>
+        <h2>Evaluated choices</h2>
         <hr />
       </div>
     </div>
@@ -70,9 +80,14 @@
   <div class="row">
     @foreach (var choice in Model.Evaluated)
     {
-      <div class="col-12 col-md-6 col-xl-3 mb-3">
-        <div class="choice-container">
-          <h3>@choice.Name</h3>
+      <div class="col-12 col-md-6 col-xl-4 mb-3">
+        <div class="container choice-container">
+          <div class="row justify-content-end">
+            <div class="col-auto">
+              <p class="decorative-guid">››› @choice.Id</p>
+            </div>
+          </div>
+          <h4>@choice.Name</h4>
           <div class="row row-mlr-1">
             @foreach (var option in choice.Options)
             {
@@ -81,7 +96,10 @@
               </div>
             }
           </div>
-          <div class="row">
+          <div class="row row-mlr-1 justify-content-end mt-2">
+            <div class="col-auto col-plr-1">
+              <a class="btn btn-secondary float-right clearfix choice-button" role="button" asp-controller="choice" asp-action="archive" asp-route-id="@choice.Id" alt="archive"><img src="~/icons/archive_gray_24dp.svg" /></a>
+            </div>
           </div>
         </div>
       </div>

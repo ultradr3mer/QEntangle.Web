@@ -28,7 +28,13 @@ namespace QEntangle.Web.Repositorys
 
     #region Methods
 
-    public async Task<ChoiceEntity> GetChoice(Guid choiceId, Guid userId)
+    public async Task Delete(ChoiceEntity entity)
+    {
+      this.databaseContext.Remove(entity);
+      await this.databaseContext.SaveChangesAsync();
+    }
+
+    public async Task<ChoiceEntity> Get(Guid choiceId, Guid userId)
     {
       ChoiceEntity data = await (from c in this.databaseContext.Choice
                                  where c.Id == choiceId && c.UserId == userId
@@ -40,18 +46,23 @@ namespace QEntangle.Web.Repositorys
     public async Task<IList<ChoiceData>> GetChoices(Guid userId)
     {
       List<ChoiceEntity> data = await (from c in this.databaseContext.Choice
-                                       where c.UserId == userId
+                                       where c.UserId == userId && c.IsArchived == false
                                        select c).OrderByDescending(o => o.EvaluatedDate ?? o.CreatedDate).ToListAsync();
 
-      var result = data.Select(CreateGetDataFromEntity).ToList();
+      List<ChoiceData> result = data.Select(CreateGetDataFromEntity).ToList();
 
       return result;
     }
 
-    public async Task PostChoiceAsync(ChoiceEntity entity)
+    public async Task PostAsync(ChoiceEntity entity)
     {
-      await databaseContext.AddAsync(entity);
-      await databaseContext.SaveChangesAsync();
+      await this.databaseContext.AddAsync(entity);
+      await this.databaseContext.SaveChangesAsync();
+    }
+
+    public async Task SaveChanges()
+    {
+      await this.databaseContext.SaveChangesAsync();
     }
 
     private static ChoiceData CreateGetDataFromEntity(ChoiceEntity entity)
@@ -63,11 +74,6 @@ namespace QEntangle.Web.Repositorys
         Options = entity.Options.Split(","),
         DefinitiveOption = entity.DefinitiveOption
       };
-    }
-
-    public async Task SaveChanges()
-    {
-      await databaseContext.SaveChangesAsync();
     }
 
     #endregion Methods

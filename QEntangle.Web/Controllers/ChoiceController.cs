@@ -42,7 +42,7 @@ namespace QEntangle.Web.Controllers
     {
       ApplicationUser user = await this.GetCurrentUserAsync();
 
-      ChoiceEntity entity = await this.choiceRepository.GetChoice(id, user.Id);
+      ChoiceEntity entity = await this.choiceRepository.Get(id, user.Id);
 
       if (entity == null)
       {
@@ -66,7 +66,7 @@ namespace QEntangle.Web.Controllers
       entity.EvaluatedDate = DateTime.Now;
       await this.choiceRepository.SaveChanges();
 
-      return this.RedirectToAction("List");
+      return this.RedirectToAction(nameof(this.List));
     }
 
     public IActionResult Index()
@@ -85,13 +85,43 @@ namespace QEntangle.Web.Controllers
       return this.View(vm);
     }
 
-    public IActionResult PostChoice()
+    public IActionResult Post()
     {
       return this.ShowPostChoiceView(new PostChoiceData(), string.Empty);
     }
 
+    public async Task<IActionResult> Delete(Guid id)
+    {
+      ApplicationUser user = await this.GetCurrentUserAsync();
+      ChoiceEntity entity = await this.choiceRepository.Get(id, user.Id);
+      if (entity == null)
+      {
+        throw new Exception("Choice not found.");
+      }
+
+      await this.choiceRepository.Delete(entity);
+
+      return this.RedirectToAction(nameof(this.List));
+    }
+
+    public async Task<IActionResult> Archive(Guid id)
+    {
+      ApplicationUser user = await this.GetCurrentUserAsync();
+      ChoiceEntity entity = await this.choiceRepository.Get(id, user.Id);
+      if (entity == null)
+      {
+        throw new Exception("Choice not found.");
+      }
+
+      entity.IsArchived = true;
+
+      await this.choiceRepository.SaveChanges();
+
+      return this.RedirectToAction(nameof(this.List));
+    }
+
     [HttpPost]
-    public async Task<IActionResult> PostChoice(PostChoiceData choice)
+    public async Task<IActionResult> Post(PostChoiceData choice)
     {
       ApplicationUser user = await this.GetCurrentUserAsync();
 
@@ -119,7 +149,7 @@ namespace QEntangle.Web.Controllers
         CreatedDate = DateTime.Now
       };
 
-      await this.choiceRepository.PostChoiceAsync(entity);
+      await this.choiceRepository.PostAsync(entity);
 
       return this.RedirectToAction("List");
     }

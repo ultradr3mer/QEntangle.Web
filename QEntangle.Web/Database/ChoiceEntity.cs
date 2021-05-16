@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace QEntangle.Web.Database
@@ -27,6 +28,9 @@ namespace QEntangle.Web.Database
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? EvaluatedDate { get; set; }
+
+    [DefaultValue("false")]
+    public bool IsArchived { get; set; }
 
     #endregion Properties
   }
