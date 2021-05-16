@@ -43,7 +43,7 @@ namespace QEntangle.Web.Repositorys
     {
       List<ChoiceEntity> data = await (from c in this.databaseContext.Choice
                                        where c.UserId == userId
-                                       select c).ToListAsync();
+                                       select c).OrderByDescending(o => o.EvaluatedDate ?? o.CreatedDate).ToListAsync();
 
       var result = data.Select(CreateGetDataFromEntity).ToList();
 

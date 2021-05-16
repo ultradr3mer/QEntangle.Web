@@ -24,6 +24,10 @@ namespace QEntangle.Web.Database
 
     public Guid UserId { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? EvaluatedDate { get; set; }
+
     #endregion Properties
   }
 }

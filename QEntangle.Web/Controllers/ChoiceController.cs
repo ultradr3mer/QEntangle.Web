@@ -63,6 +63,7 @@ namespace QEntangle.Web.Controllers
       string definitiveOptionString = options[definitiveOptionNumber];
 
       entity.DefinitiveOption = definitiveOptionString;
+      entity.EvaluatedDate = DateTime.Now;
       await this.choiceRepository.SaveChanges();
 
       return this.RedirectToAction("List");
@@ -115,6 +116,7 @@ namespace QEntangle.Web.Controllers
         Name = choice.Name,
         Options = optionsString,
         UserId = user.Id,
+        CreatedDate = DateTime.Now
       };
 
       await this.choiceRepository.PostChoiceAsync(entity);
