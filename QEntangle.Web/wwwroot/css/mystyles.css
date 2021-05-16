@@ -99,7 +99,7 @@ footer {
   border: 0;
 }
 
-@media (max-width: 767.98px)  {
+@media (max-width: 767.98px) {
   .navbar-expand-md.container, .navbar-expand-md.container-fluid {
     padding-right: 15px;
     padding-left: 15px;
@@ -217,18 +217,6 @@ hr {
   color: #0000005b;
 }
 
-@media (min-width: 768px) {
-  .welcome-principle {
-    display:none;
-  }
-}
-
-@media (max-width: 767.9px) {
-  .welcome-principle-md {
-    display: none;
-  }
-}
-
 .footer-bullet {
   font-size: 1.5rem;
   line-height: 0.8rem;
@@ -248,4 +236,33 @@ hr {
   margin-bottom: 0;
   font-size: 0.8rem;
   color: #e6e6e6c7;
+}
+
+@media (min-width: 992px) {
+  .welcome-principle {
+    display: none;
+  }
+}
+
+@media (max-width: 991.9px) {
+  .welcome-inner-container {
+    width: 250px;
+    height: 370px;
+  }
+
+  .welcome-logo {
+    margin-bottom: -40px;
+  }
+
+  .welcome-header {
+    font-size: 3.5rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+
+  .welcome-principle-lg {
+    display: none;
+  }
 }
