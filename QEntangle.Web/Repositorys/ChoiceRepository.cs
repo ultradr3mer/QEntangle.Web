@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QEntangle.Web.Data;
 using QEntangle.Web.Database;
-using QEntangle.Web.Exceptions;
 using QEntangle.Web.Interfaces;
-using QEntangle.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,23 +1,19 @@
 ﻿@model PostChoiceData
-<div class="row mb-3">
-  <div class="col-12 col-md-6">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <form asp-action="PostChoice" method="post" role="form">
-      <div class="mb-3">
-        <label asp-for="Name" class="form-label">Name</label>
-        <input asp-for="Name" type="text" class="form-control" aria-describedby="emailHelp">
-        <span asp-validation-for="Name" class="text-danger"></span>
-        <div id="nameHelp" class="form-text">Input a name or a short description.</div>
-      </div>
-      <div class="mb-3">
-        <label asp-for="Options" class="form-label">Options</label>
-        <textarea asp-for="Options" class="form-control"></textarea>
-        <span asp-validation-for="Options" class="text-danger"></span>
-        <div id="optionsHelp" class="form-text">Input the possible options, seperated by ",".</div>
-      </div>
-      <div class="clearfix mt-2">
-        <button class="btn btn-primary float-right clearfix" type="submit"><img src="~/icons/send_black_24dp.svg" /></button>
-      </div>
-    </form>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="PostChoice" method="post" role="form">
+  <div class="mb-3">
+    <label asp-for="Name" class="form-label">Name</label>
+    <input asp-for="Name" type="text" class="form-control" aria-describedby="emailHelp">
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <div id="nameHelp" class="form-text">Input a name or a short description.</div>
   </div>
-</div>
+  <div class="mb-3">
+    <label asp-for="Options" class="form-label">Options</label>
+    <textarea asp-for="Options" class="form-control"></textarea>
+    <span asp-validation-for="Options" class="text-danger"></span>
+    <div id="optionsHelp" class="form-text">Input the possible options, seperated by ",".</div>
+  </div>
+  <div class="clearfix mt-2">
+    <button class="btn btn-primary float-right clearfix" type="submit"><img src="~/icons/send_black_24dp.svg" /></button>
+  </div>
+</form>

@@ -145,3 +145,60 @@ hr {
 .btn-primary {
   color: black;
 }
+
+.floated-right-child {
+  float: right;
+  width: auto;
+}
+
+.floated-left-child {
+  float: left;
+  width: auto;
+}
+
+.welcome-container {
+  background-color: #fa6800;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-inner-container {
+  width: 400px;
+  height: 560px;
+}
+
+
+.welcome-edge {
+  position: absolute;
+  bottom: .25rem;
+  right: .25rem;
+}
+
+.welcome-logo {
+  width: 100%;
+  margin-bottom: -50px;
+}
+
+.welcome-hr {
+  border-top: 2px solid black;
+}
+
+.welcome-header {
+  font-size: 5rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.welcome-subtitle {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-top: -10px;
+}
