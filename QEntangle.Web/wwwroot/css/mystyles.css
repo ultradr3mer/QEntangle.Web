@@ -9,6 +9,7 @@ h1 {
 
 .logo-div {
   background-color: #fa6800;
+  position: relative;
 }
 
 body {
@@ -21,6 +22,9 @@ body {
 .vertical-alignment-container {
   display: flex;
   align-items: center;
+}
+
+.horizontal-alignment-container {
   justify-content: center
 }
 
@@ -29,13 +33,19 @@ body {
   color: black;
 }
 
+.logo-edge {
+  position: absolute;
+  bottom: .1rem;
+  right: .1rem;
+}
+
 .bg-dark {
   background-color: #454545 !important;
 }
 
 footer {
   background-color: #454545;
-  font-size: 1.2rem;
+  font-size: 16px;
 }
 
 .navbar {
@@ -201,4 +211,21 @@ hr {
   color: black;
   text-align: center;
   margin-top: -10px;
+}
+
+@media (min-width: 768px) {
+  .welcome-principle {
+    display:none;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .welcome-principle-md {
+    display: none;
+  }
+}
+
+.footer-bullet {
+  font-size: 1.5rem;
+  line-height: 0.8rem;
 }
