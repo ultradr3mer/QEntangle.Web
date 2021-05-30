@@ -17,7 +17,7 @@ body {
   color: #e6e6e6;
   font-size: 16px;
   background-color: #333333;
-  letter-spacing: -0.1rem;
+  letter-spacing: -0.05rem;
 }
 
 .vertical-alignment-container {
@@ -187,7 +187,7 @@ hr {
 
 .welcome-logo {
   width: 100%;
-  margin-bottom: -50px;
+  margin-bottom: -35px;
 }
 
 .welcome-hr {
